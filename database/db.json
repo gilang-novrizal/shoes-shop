@@ -20,7 +20,7 @@
         },
         {
           "code": 40,
-          "total": 10
+          "total": 9
         },
         {
           "code": 41,
@@ -60,7 +60,7 @@
         },
         {
           "code": 40,
-          "total": 15
+          "total": 13
         },
         {
           "code": 41,
@@ -125,7 +125,12 @@
       "name": "JORDAN AIR JORDAN 14 RETRO",
       "category": "Men, Sport, Sneaker",
       "brand": "JORDAN",
-      "rating": [],
+      "rating": [
+        {
+          "star": 4,
+          "userID": 4
+        }
+      ],
       "colour": "BLACK/GYM RED-WHITE-OFF WHITE",
       "description": "In the game of basketball Michael Jordan is a god. Number 23 of the Chicago Bulls has set the bar extremely high: His six championship rings, five mvp`s, numerous scoring titles, not to mention his ...",
       "price": 2680000,
@@ -136,11 +141,11 @@
         },
         {
           "code": 39,
-          "total": 7
+          "total": 6
         },
         {
           "code": 40,
-          "total": 6
+          "total": 5
         },
         {
           "code": 41,
@@ -180,7 +185,7 @@
         },
         {
           "code": 40,
-          "total": 7
+          "total": 6
         },
         {
           "code": 41,
@@ -216,7 +221,7 @@
         },
         {
           "code": 39,
-          "total": 1
+          "total": 0
         },
         {
           "code": 40,
@@ -260,7 +265,7 @@
         },
         {
           "code": 40,
-          "total": 16
+          "total": 14
         },
         {
           "code": 41,
@@ -363,7 +368,7 @@
     {
       "id": 10,
       "name": "PLEASURES UTOPIA CROCS BY PLEASURES",
-      "category": "Man, Sandals, Flip Flop ",
+      "category": "Men, Sandals, Flip Flop ",
       "brand": "PLEASURES",
       "colour": "BLACK",
       "rating": [],
@@ -380,7 +385,7 @@
         },
         {
           "code": 40,
-          "total": 7
+          "total": 6
         },
         {
           "code": 41,
@@ -403,7 +408,7 @@
     {
       "id": 11,
       "name": "PUMA CLYDE HARDWOOD RETRO",
-      "category": "Man, Sport, Basketball",
+      "category": "Men, Sport, Basketball",
       "brand": "PUMA",
       "rating": [],
       "colour": "Puma White-Orange Pop",
@@ -420,7 +425,7 @@
         },
         {
           "code": 40,
-          "total": 2
+          "total": 1
         },
         {
           "code": 41,
@@ -443,7 +448,7 @@
     {
       "id": 12,
       "name": "ADIDAS PERFORMANCE MARQUEE MID - VEGAS",
-      "category": "Man, Sport, Basketball",
+      "category": "Men, Sport, Basketball",
       "brand": "ADIDAS",
       "rating": [],
       "colour": "legend ink/ftwr white/flash orange",
@@ -464,7 +469,7 @@
         },
         {
           "code": 41,
-          "total": 3
+          "total": 2
         },
         {
           "code": 42,
@@ -528,7 +533,7 @@
       "username": "novrizal",
       "password": "asdfgh12!",
       "role": "user",
-      "email": "gilang@yahoo.com",
+      "email": "as@gmaiil.com",
       "id": 3,
       "cart": []
     },
@@ -539,31 +544,146 @@
       "email": "gilang@gmail.com",
       "id": 4,
       "cart": []
+    },
+    {
+      "username": "novrizal13",
+      "password": "adadech13!",
+      "role": "user",
+      "email": "xxx@gmail.com",
+      "cart": [],
+      "id": 5
+    },
+    {
+      "username": "qwerty12",
+      "password": "asdfgh12!",
+      "role": "user",
+      "email": "gilang@gilang.com",
+      "cart": [],
+      "id": 6
+    },
+    {
+      "username": "gilangnw",
+      "password": "asqwqe12!",
+      "role": "user",
+      "email": "as@gmail.com",
+      "cart": [],
+      "id": 7
     }
   ],
   "transaction_history": [
     {
-      "userID": 4,
-      "date": "7/3/2020, 9:22:13 AM",
-      "total": 1780000,
+      "userID": 3,
+      "date": "7/6/2020, 4:49:30 PM",
+      "total": 2500000,
       "products": [
         {
-          "id": 3,
-          "image": "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-1.jpg",
-          "name": "NIKE KYRIE 6",
+          "id": 1,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-1.jpg",
+          "name": "NIKE AIR ZOOM-TYPE",
           "brand": "NIKE",
-          "color": "WHITE/BLUE FURY-OPTI YELLOW-DIGITAL PINK",
-          "size": 39,
+          "color": "BLACK/SUMMIT WHITE-MENTA-ORANGE TRANCE",
+          "price": 2500000,
+          "size": 40,
           "qty": 1,
-          "total": 1780000
+          "total": 2500000
         }
       ],
-      "id": 1
+      "id": 4
     },
     {
       "userID": 3,
-      "date": "7/3/2020, 9:23:08 AM",
-      "total": 2680000,
+      "date": "7/6/2020, 4:50:08 PM",
+      "total": 2857870,
+      "products": [
+        {
+          "id": 10,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/Utopia_Crocs_by_PLEASURES-Black-1.jpg",
+          "name": "PLEASURES UTOPIA CROCS BY PLEASURES",
+          "brand": "PLEASURES",
+          "color": "BLACK",
+          "price": 543000,
+          "size": 40,
+          "qty": 1,
+          "total": 543000
+        },
+        {
+          "id": 11,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/puma-Clyde_Hardwood_Retro-Puma_White_Orange_Pop-1.jpg",
+          "name": "PUMA CLYDE HARDWOOD RETRO",
+          "brand": "PUMA",
+          "color": "Puma White-Orange Pop",
+          "price": 2314870,
+          "size": 40,
+          "qty": 1,
+          "total": 2314870
+        }
+      ],
+      "id": 5
+    },
+    {
+      "userID": 5,
+      "date": "7/6/2020, 5:00:46 PM",
+      "total": 3000000,
+      "products": [
+        {
+          "id": 2,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-1.jpg",
+          "name": "JORDAN WESTBROOK ONE TAKE",
+          "brand": "JORDAN",
+          "color": "WHITE/WHITE-BLACK-RAGE GREEN",
+          "price": 1500000,
+          "size": 40,
+          "qty": 2,
+          "total": 3000000
+        }
+      ],
+      "id": 6
+    },
+    {
+      "userID": 4,
+      "date": "7/6/2020, 5:02:16 PM",
+      "total": 5048562,
+      "products": [
+        {
+          "id": 7,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/vans-UA_Era_Mix__Match-cadmium_yellow_tidepool-1.jpg",
+          "name": "VANS UA ERA (MIX & MATCH)",
+          "brand": "VANS",
+          "color": "cadmium yellow/tidepool",
+          "price": 678956,
+          "size": 40,
+          "qty": 2,
+          "total": 1357912
+        },
+        {
+          "id": 5,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/W_NIKE_REACT_ELEMENT_55-WHITE_FIRE_PINK_SAPPHIRE_BARELY_VOLT-1.jpg",
+          "name": "NIKE W NIKE REACT ELEMENT 55",
+          "brand": "NIKE",
+          "color": "WHITE/FIRE PINK-SAPPHIRE-BARELY VOLT",
+          "price": 2345000,
+          "size": 40,
+          "qty": 1,
+          "total": 2345000
+        },
+        {
+          "id": 12,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-1.jpg",
+          "name": "ADIDAS PERFORMANCE MARQUEE MID - VEGAS",
+          "brand": "ADIDAS",
+          "color": "legend ink/ftwr white/flash orange",
+          "price": 1345650,
+          "size": 41,
+          "qty": 1,
+          "total": 1345650
+        }
+      ],
+      "id": 7
+    },
+    {
+      "userID": 2,
+      "date": "7/6/2020, 5:03:13 PM",
+      "total": 4667300,
       "products": [
         {
           "id": 4,
@@ -571,12 +691,24 @@
           "name": "JORDAN AIR JORDAN 14 RETRO",
           "brand": "JORDAN",
           "color": "BLACK/GYM RED-WHITE-OFF WHITE",
+          "price": 2680000,
           "size": 40,
           "qty": 1,
           "total": 2680000
+        },
+        {
+          "id": 6,
+          "image": "https://kickz.akamaized.net/en/media/images/p/1200/nike-W_AIR_MAX_90-WHITE_PARTICLE_GREY_ROSE_BLACK-1.jpg",
+          "name": "NIKE W AIR MAX 90",
+          "brand": "NIKE",
+          "color": "WHITE/PARTICLE GREY-ROSE-BLACK",
+          "price": 1987300,
+          "size": 39,
+          "qty": 1,
+          "total": 1987300
         }
       ],
-      "id": 2
+      "id": 8
     }
   ]
 }

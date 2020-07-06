@@ -13,10 +13,6 @@ import {
   InputAdornment,
   IconButton,
   FormHelperText,
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
 } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -34,7 +30,7 @@ class Register extends React.Component {
       showHelperPassword: false,
       user: [],
       usernameUsed: false,
-      // emailUsed: false,
+      emailUsed: false,
     };
   }
   register = () => {
@@ -47,31 +43,51 @@ class Register extends React.Component {
       .then((res) => {
         console.log(res.data);
         if (res.data.length > 0) {
-          this.setState({ usernameUsed: true });
+          this.setState({ usernameUsed: true, userValid: false });
           return;
         } else {
-          if (
-            this.state.userValid &&
-            this.state.emailValid &&
-            this.state.passwordValid
-          ) {
-            Axios.post("http://localhost:2000/users", {
-              username,
-              password,
-              role,
-              email,
-            })
-              .then((res) => {
-                if (res.data.length !== 0) this.setState({ user: res.data });
-              })
-              .catch((err) => console.log(err));
-          } else {
-            this.setState({
-              showHelperUser: true,
-              showHelperEmail: true,
-              showHelperPassword: true,
-            });
-          }
+          Axios.get(`http://localhost:2000/users?email=${email}`).then(
+            (res) => {
+              if (res.data.length > 0) {
+                this.setState({ emailUsed: true, emailValid: false });
+                return;
+              } else {
+                if (
+                  this.state.userValid &&
+                  this.state.emailValid &&
+                  this.state.passwordValid
+                ) {
+                  Axios.post("http://localhost:2000/users", {
+                    username,
+                    password,
+                    role,
+                    email,
+                    cart: [],
+                  })
+                    .then((res) => {
+                      if (res.data.length !== 0)
+                        this.setState({ user: res.data });
+                      this.setState({
+                        showHelperUser: false,
+                        showHelperEmail: false,
+                        showHelperPassword: false,
+                        usernameUsed: false,
+                        emailUsed: false,
+                      });
+                    })
+                    .catch((err) => console.log(err));
+                } else {
+                  this.setState({
+                    showHelperUser: true,
+                    showHelperEmail: true,
+                    showHelperPassword: true,
+                    usernameUsed: true,
+                    emailUsed: true,
+                  });
+                }
+              }
+            }
+          );
         }
       })
       .catch((err) => console.log(err));
@@ -103,11 +119,9 @@ class Register extends React.Component {
   handleEmailInput = () => {
     this.setState({ showHelperEmail: true });
     let email = this.email.value;
-    if (email.length > 0) {
-      this.setState({ emailValid: true });
-    } else {
-      this.setState({ emailValid: false });
-    }
+    let reg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    let regtest = reg.test(email);
+    this.setState({ emailValid: regtest ? true : false });
   };
 
   handlePasswordInput = () => {
@@ -159,7 +173,7 @@ class Register extends React.Component {
       showHelperEmail,
       showHelperPassword,
       usernameUsed,
-      // emailUsed,
+      emailUsed,
     } = this.state;
     if (user.length !== 0) return <Redirect to="/login" />;
 
@@ -190,6 +204,11 @@ class Register extends React.Component {
                     ? null
                     : "* Username minimal 6 characters & cannot include symbol"}
                 </FormHelperText>
+                <FormHelperText style={styles.helper}>
+                  {!usernameUsed || !showHelperUser
+                    ? null
+                    : "* Username already used!"}
+                </FormHelperText>
               </FormControl>
             </div>
 
@@ -212,6 +231,11 @@ class Register extends React.Component {
                   {emailValid || !showHelperEmail
                     ? null
                     : "* This is required!"}
+                </FormHelperText>
+                <FormHelperText style={styles.helper}>
+                  {!emailUsed || !showHelperUser
+                    ? null
+                    : "* Email already used!"}
                 </FormHelperText>
               </FormControl>
             </div>
@@ -253,7 +277,7 @@ class Register extends React.Component {
             </Button>
           </CardActions>
         </Card>
-        <Dialog
+        {/* <Dialog
           open={usernameUsed}
           onClose={this.handleCloseDialog}
           aria-labelledby="alert-dialog-title"
@@ -271,7 +295,7 @@ class Register extends React.Component {
               Close
             </Button>
           </DialogActions>
-        </Dialog>
+        </Dialog> */}
       </div>
     );
   }

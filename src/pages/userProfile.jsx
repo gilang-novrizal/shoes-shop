@@ -82,26 +82,17 @@ class UserProfile extends React.Component {
       .catch((err) => console.log(err));
   };
   emailValidation = (email) => {
-    if (!email.includes("@") || !email.includes(".")) {
-      return this.setState({ emailError: true });
-    }
-    if (email.split("@") > 2 || email.split(".") > 2) {
-      return this.setState({ emailError: true });
-    }
-    let at = email.indexOf("@");
-    let dot = email.indexOf(".");
-    if (at > dot || at - dot === 1) {
-      return this.setState({ emailError: true });
-    }
-    this.setState({ emailError: false });
+    let reg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+    let regtest = reg.test(email);
+
+    this.setState({ emailError: regtest ? false : true });
   };
   passwordValidation = (password) => {
     Axios.get(
       `http://localhost:2000/users?id=${this.props.id}&password=${password}`
     ).then((res) => {
-      if (res.data.length > 0) {
-        this.setState({ passwordError: false });
-      } else this.setState({ passwordError: true });
+      this.setState({ passwordError: res.data.length ? false : true });
     });
   };
   submitEmail = () => {

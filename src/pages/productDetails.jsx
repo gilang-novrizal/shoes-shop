@@ -93,6 +93,7 @@ class Detail extends React.Component {
         name: data.name,
         brand: data.brand,
         color: data.colour,
+        price: data.price,
         size: size,
         qty: total,
         total: total * data.price,

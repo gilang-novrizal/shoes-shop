@@ -15,6 +15,7 @@ import History from "./pages/history";
 import NotFound from "./pages/notFound";
 import UserProfile from "./pages/userProfile";
 import UserHistory from "./pages/userHistory";
+import Wishlist from "./pages/wishlist";
 
 import NavbarMaterial from "./component/navbar";
 import Footer from "./component/footer";
@@ -24,9 +25,6 @@ class App extends React.Component {
     Axios.get(`http://localhost:2000/users?id=${localStorage.getItem("id")}`)
       .then((res) => {
         this.props.LogIn(res.data[0]);
-        Axios.get(`http://localhost:2000/products`).then((res) =>
-          this.props.getProduct(res.data)
-        );
       })
       .catch((err) => console.log(err));
   }
@@ -46,6 +44,7 @@ class App extends React.Component {
             <Route path="/cart" component={userCart} />
             <Route path="/userprofile" component={UserProfile} />
             <Route path="/userhistory" component={UserHistory} />
+            <Route path="/wishlist" component={Wishlist} />
             <Route path="*" component={NotFound} />
           </Switch>
         ) : (

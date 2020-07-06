@@ -71,6 +71,9 @@ class Profile extends React.Component {
                   <Link to="/cart">
                     <MenuItem>Cart</MenuItem>
                   </Link>
+                  <Link to="/wishlist">
+                    <MenuItem>Wishlist</MenuItem>
+                  </Link>
                   <Link to="/login" onClick={this.logout}>
                     <MenuItem>Logout</MenuItem>
                   </Link>
@@ -104,6 +107,7 @@ class Profile extends React.Component {
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     username: state.user.username,

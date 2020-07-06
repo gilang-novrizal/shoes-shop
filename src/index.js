@@ -14,6 +14,9 @@ import Reducers from "./reducer";
 
 // Create global store
 let globalStore = createStore(Reducers);
+globalStore.subscribe(() =>
+  console.log("global store:", globalStore.getState())
+);
 
 ReactDOM.render(
   <Provider store={globalStore}>

@@ -17,8 +17,15 @@ import {
   DialogContentText,
   DialogTitle,
   TextField,
+  IconButton,
+  Typography,
 } from "@material-ui/core";
-
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import CancelIcon from "@material-ui/icons/Cancel";
 import { Redirect } from "react-router-dom";
 
 class userCart extends React.Component {
@@ -28,6 +35,8 @@ class userCart extends React.Component {
       alert: false,
       toHome: false,
       passwordError: false,
+      editrow: null,
+      count: 0,
     };
   }
   checkout = () => {
@@ -116,6 +125,45 @@ class userCart extends React.Component {
         console.log(err);
       });
   };
+  edit = (index) => {
+    this.setState({ editrow: index, count: this.props.cart[index].qty });
+  };
+  plus = (index) => {
+    let countedit = this.state.count;
+    countedit++;
+    this.setState({ count: countedit });
+  };
+  minus = (index) => {
+    let countedit = this.state.count;
+    countedit--;
+    this.setState({ count: countedit });
+    if (countedit === 0) {
+      this.delete(index);
+      this.setState({ editrow: null });
+    }
+  };
+  save = (index) => {
+    let tempCart = this.props.cart;
+    tempCart[index].qty = this.state.count;
+    tempCart[index].total = tempCart[index].price * tempCart[index].qty;
+    Axios.patch(`http://localhost:2000/users/${this.props.id}`, {
+      cart: tempCart,
+    })
+      .then((res) => {
+        Axios.get(`http://localhost:2000/users/${this.props.id}`).then(
+          (res) => {
+            this.props.LogIn(res.data);
+            this.setState({ editrow: null });
+          }
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  cancel = (index) => {
+    this.setState({ editrow: null });
+  };
   renderTableHead = () => {
     return (
       <TableRow>
@@ -140,18 +188,49 @@ class userCart extends React.Component {
         <TableRow key={index}>
           <TableCell>{index + 1}</TableCell>
           <TableCell>
-            <img src={item.image} alt="product image" width="100px" />{" "}
+            <img src={item.image} alt="product image" width="100px" />
           </TableCell>
           <TableCell>{item.name}</TableCell>
           <TableCell>{item.brand}</TableCell>
           <TableCell>{item.color}</TableCell>
           <TableCell>{item.size}</TableCell>
-          <TableCell>{item.qty}</TableCell>
+          <TableCell>
+            {index === this.state.editrow ? (
+              <div style={{ display: "flex" }}>
+                <IconButton onClick={() => this.minus(index)}>
+                  <RemoveIcon />
+                </IconButton>
+
+                <Typography>{this.state.count}</Typography>
+                <IconButton onClick={() => this.plus(index)}>
+                  <AddIcon />
+                </IconButton>
+              </div>
+            ) : (
+              <div>{item.qty}</div>
+            )}
+          </TableCell>
           <TableCell>Rp.{item.total.toLocaleString()}</TableCell>
           <TableCell>
-            <Button variant="contained" onClick={() => this.delete(index)}>
-              ❌
-            </Button>
+            {index === this.state.editrow ? (
+              <div>
+                <IconButton onClick={() => this.save(index)}>
+                  <CheckCircleIcon />
+                </IconButton>
+                <IconButton onClick={() => this.cancel(index)}>
+                  <CancelIcon />
+                </IconButton>
+              </div>
+            ) : (
+              <div>
+                <IconButton onClick={() => this.delete(index)}>
+                  <DeleteIcon />
+                </IconButton>
+                <IconButton onClick={() => this.edit(index)}>
+                  <EditIcon />
+                </IconButton>
+              </div>
+            )}
           </TableCell>
         </TableRow>
       );

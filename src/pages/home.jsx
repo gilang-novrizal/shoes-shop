@@ -41,7 +41,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("from redux", state);
+  // console.log("from redux", state);
   return {
     slider: state.slider,
     product: state.product,
