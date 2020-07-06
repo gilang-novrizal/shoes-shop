@@ -52,9 +52,9 @@ class NavbarMaterial extends React.Component {
         }}
       >
         {this.props.cart.length === 0 ? (
-          <div>
-            <Typography variant="h6">Cart is empty</Typography>
-          </div>
+          <Card style={{ padding: "2%" }}>
+            <Typography variant="body1">Cart is empty</Typography>
+          </Card>
         ) : (
           <div>
             <Card
